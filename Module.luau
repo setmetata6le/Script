@@ -134,14 +134,15 @@ return(function( ... )
 			return text
 		end
 		
-		function others:waitforchild(arguments)
-			local current, timeout = nil, 5
+		function others:waitforchild(root, arguments)
+			local current = root
+			local timeout = 5
 
-			for name in arguments do
+			for _, name in ipairs(arguments) do
 				current = current:WaitForChild(name, timeout)
 
 				if not current then
-					warn("Timeout : " .. name)
+					warn("Timeout: " .. name)
 					return nil
 				end
 			end
