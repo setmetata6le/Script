@@ -4306,7 +4306,7 @@ function Liquid:Window(configs)
 				Title = "Transparent",
 				Desc = "Make the background transparent.",
 				Value = self:GetWindowSetting('Transparent'),
-				Callback = function(self, state)
+				Callback = function(_, state)
 					self:SetTransparent(state)
 
 					self:Notification({
@@ -4331,6 +4331,8 @@ function Liquid:Window(configs)
 					self:SetKeybind(key)
 				end,
 			})
+			
+			return Setting
 		end
 	end
 
