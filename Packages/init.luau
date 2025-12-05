@@ -4327,7 +4327,7 @@ function Liquid:Window(configs)
 				Desc = "A shortcut key that lets you open or close a UI window with one press.",
 				Key = Enum.KeyCode.LeftControl,
 				Value = true,
-				Callback = function(self, key, state)
+				Callback = function(_, key, state)
 					self:SetKeybind(key)
 				end,
 			})
