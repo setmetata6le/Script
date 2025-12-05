@@ -166,7 +166,7 @@ return(function( ... )
 		
 		function theards:create(a, b, c)
 			nets[a] = function(Value)
-				module.whiles(Value, b or 0.1, c, function()
+				theards:whiles(Value, b or 0.1, c, function()
 					return not Value
 				end)
 			end
