@@ -3974,7 +3974,7 @@ function Liquid:Window(configs)
 	History_1.BorderColor3 = Color3.fromRGB(0,0,0)
 	History_1.BorderSizePixel = 0
 	History_1.Position = UDim2.new(1, 0,0.5, 0)
-	History_1.Size = UDim2.new(0.4, 0,1, 0)
+	History_1.Size = UDim2.new(0, 250,1, 0)
 
 	UIListLayout_1.Parent = History_1
 	UIListLayout_1.Padding = UDim.new(0,10)
