@@ -520,8 +520,8 @@ return(function( ... )
 	
 	configs = module.database:load() 
 	
-	module.nets = nets
 	module.configs = configs
+	module.reference = reference
 
 	return module
 end)(setmetatable, newproxy, getfenv)
