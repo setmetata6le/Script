@@ -120,8 +120,12 @@ return(function( ... )
 	packages("others", function()
 		local others = {}
 		
-		function others:newconnection(a, b)
-			table.insert(connections, a:Connect(b))
+		function others:newconnection(signal, callback)
+			local connection = signal:Connect(callback)
+			
+			table.insert(connections, connection)
+			
+			return connection
 		end
 		
 		function others:fontcolors(text, color)
@@ -132,22 +136,6 @@ return(function( ... )
 			end
 
 			return text
-		end
-		
-		function others:waitforchild(root, arguments)
-			local current = root
-			local timeout = 5
-
-			for _, name in ipairs(arguments) do
-				current = current:WaitForChild(name, timeout)
-
-				if not current then
-					warn("Timeout: " .. name)
-					return nil
-				end
-			end
-
-			return current
 		end
 		
 		do
