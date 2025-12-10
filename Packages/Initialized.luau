@@ -2166,6 +2166,7 @@ function Liquid:Window(configs)
 				end
 
 				if value then 
+					Callback(Setting, value)
 					Icon_1.Size = UDim2.new(0.85, 0,0.85, 0)
 
 					Liquid:Tween({
@@ -2200,6 +2201,7 @@ function Liquid:Window(configs)
 
 					UIStroke_1.Color = Color3.fromRGB(30, 30, 30)
 				else
+					Callback(Setting, value)
 					Liquid:Tween({
 						v = Checker_1,
 						t = 0.5,
@@ -2226,20 +2228,16 @@ function Liquid:Window(configs)
 				Liquid:Effect(Button, Template)
 			end
 
-			local function Init()
+			Button.MouseButton1Click:Connect(function()
 				for _, v in pairs(Page_1:GetChildren()) do
 					if v.Name == "Dropdown" and v.Visible then
 						return
 					end
 				end
-
+				
 				Value = not Value
-
-				Callback(Setting, Value)
 				OnChanged(Value)
-			end
-
-			Button.MouseButton1Click:Connect(Init)
+			end)
 
 			OnChanged(Value)
 
@@ -4332,7 +4330,7 @@ function Liquid:Window(configs)
 					self:SetKeybind(key)
 				end,
 			})
-			
+
 			return Setting
 		end
 	end
